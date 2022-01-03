@@ -24,6 +24,10 @@
 <script>
   const tag = document.querySelector('.tag');
 
+  // window.screen : 모니터 사이즈
+  // window.outer : 주소창, 탭 크기를 포함한 보여지는 화면의 크기
+  // window.inner : 주소창, 탭크기를 제외한 보여지는 화면의 크기(스크롤 포함)
+  // documentElement.clientWidth : 주소창, 탭크기를 제외한 보여지는 화면의 크기(스크롤 제외)
   function updateTag() {
     tag.innerHTML = `
     window.screen: ${window.screen.width}, ${window.screen.height} <br/>

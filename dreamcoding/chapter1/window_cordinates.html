@@ -23,14 +23,33 @@
     .special {
       background-color: lightsalmon;
     }
+
+    aside {
+      display: flex;
+      justify-content: space-around;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 370px;
+    }
+
+    .btn-group>button {
+      font-size: 10px;
+      margin-right: 10px;
+    }
   </style>
 </head>
 
 <body>
+  <aside>
+    <button class="scroll-by">Scroll by 100px(y)</button>
+    <button class="scroll-to">Scroll to 100px(y)</button>
+    <button class="scroll-into">Scroll into special</button>
+  </aside>
   <div></div>
   <div></div>
   <div></div>
-  <div></div>d
+  <div></div>
   <div></div>
   <div></div>
   <div></div>
@@ -40,6 +59,8 @@
 </body>
 
 <script>
+  // clicent : 현재 보여지는 화면에서 클릭된 위치
+  // page : 문서 전체에서 클릭된 위치
   const specialEl = document.querySelector('.special');
   function getCordinates(event) {
     console.log(specialEl.getBoundingClientRect());
@@ -48,6 +69,14 @@
   }
   specialEl.addEventListener('click', getCordinates);
 
+  const scrollBy = document.querySelector('.scroll-by');
+  const scrollTo = document.querySelector('.scroll-to');
+  const scrollInto = document.querySelector('.scroll-into');
+  // window.scrollBy(x, y) : 
+  // scrollBy.addEventListener('click', (event) => { window.scrollBy(0, 100) });
+  scrollBy.addEventListener('click', (event) => { window.scrollBy({ left: 0, top: 100, behavior: 'smooth' }) });
+  scrollTo.addEventListener('click', () => { window.scrollTo(0, 100) });
+  scrollInto.addEventListener('click', () => { specialEl.scrollIntoView(); });
 
 </script>
 
