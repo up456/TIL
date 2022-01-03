@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window-cordinates</title>
+  <style>
+    body {
+      background-color: #000;
+      /* overflow: hidden; */
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(252, 219, 190);
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+
+    .special {
+      background-color: lightsalmon;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>d
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="special"></div>
+  <div></div>
+  <div></div>
+</body>
+
+<script>
+  const specialEl = document.querySelector('.special');
+  function getCordinates(event) {
+    console.log(specialEl.getBoundingClientRect());
+    console.log(`client: ${event.clientX}, ${event.clientY}`);
+    console.log(`page: ${event.pageX}, ${event.pageY}`);
+  }
+  specialEl.addEventListener('click', getCordinates);
+
+
+</script>
+
+</html>
