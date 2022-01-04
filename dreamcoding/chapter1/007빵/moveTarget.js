@@ -16,7 +16,10 @@ const horozontal = document.querySelector('.horozontal');
 const target = document.querySelector('.target');
 const tag = document.querySelector('.tag');
 
+// window에 이벤트를 붙일 때에는 window생략가능
+// css와 이미지가 모두 불러온 상태에서 실행되기를 원함으로 `load`시 실행
 addEventListener('load', (event) => {
+  // 요소의 크기를 가져와서 활용
   const targetRect = target.getBoundingClientRect();
   const targetHalfWidth = targetRect.width / 2;
   const targetHalfHeight = targetRect.height / 2;
@@ -29,7 +32,7 @@ addEventListener('load', (event) => {
     vertical.style.transform = `translateX(${x}px)`;
     horozontal.style.transform = `translateY(${y}px)`;
     target.style.transform = `translate(${x - targetHalfWidth}px, ${
-      y - targetHalfWidth
+      y - targetHalfHeight
     }px)`;
     tag.style.transform = `translate(${x}px, ${y}px)`;
     tag.innerHTML = `${x}px, ${y}px`;
