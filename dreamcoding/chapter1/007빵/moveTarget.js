@@ -16,16 +16,22 @@ const horozontal = document.querySelector('.horozontal');
 const target = document.querySelector('.target');
 const tag = document.querySelector('.tag');
 
-document.addEventListener('mousemove', (event) => {
-  // 반복되는 속성호출을 변수에 담아서 반복을 줄이자~!
-  const x = event.clientX;
-  const y = event.clientY;
+addEventListener('load', (event) => {
+  const targetRect = target.getBoundingClientRect();
+  const targetHalfWidth = targetRect.width / 2;
+  const targetHalfHeight = targetRect.height / 2;
 
-  vertical.style.left = `${x}px`;
-  horozontal.style.top = `${y}px`;
-  target.style.left = `${x}px`;
-  target.style.top = `${y}px`;
-  tag.style.left = `${x}px`;
-  tag.style.top = `${y}px`;
-  tag.innerHTML = `${x}px, ${y}px`;
+  document.addEventListener('mousemove', (event) => {
+    // 반복되는 속성호출을 변수에 담아서 반복을 줄이자~!
+    const x = event.clientX;
+    const y = event.clientY;
+
+    vertical.style.transform = `translateX(${x}px)`;
+    horozontal.style.transform = `translateY(${y}px)`;
+    target.style.transform = `translate(${x - targetHalfWidth}px, ${
+      y - targetHalfWidth
+    }px)`;
+    tag.style.transform = `translate(${x}px, ${y}px)`;
+    tag.innerHTML = `${x}px, ${y}px`;
+  });
 });
