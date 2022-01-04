@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll</title>
+  <style>
+    body {
+      background: #000;
+      text-align: center;
+    }
+
+    .find-rabbit {
+      width: 15%;
+      background: pink;
+      outline: none;
+      border-radius: 3px;
+      padding: 5px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 32px;
+      margin: 16px 0;
+    }
+
+    .find-rabbit:hover {
+      background: lightcoral;
+    }
+
+    .img-container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="find-rabbit">Find a rabbit!🐇</button>
+  <div class="img-container">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img id="rabbit" src="./img/rabbit.png" alt="토끼사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+    <img src="./img/carrot.png" alt="당근사진">
+  </div>
+
+
+  <script>
+    const findRabbitEl = document.querySelector('.find-rabbit');
+    const rabbitEl = document.querySelector('#rabbit');
+
+    findRabbitEl.addEventListener('click', () => {
+      rabbitEl.scrollIntoView({ behavior: "smooth", block: "center" })
+    })
+  </script>
+</body>
+
+</html>
