@@ -1,0 +1,89 @@
+:root {
+  /* color */
+  --main-color: #bcb1e9;
+  --sub-color: rgb(237, 223, 253);
+  --point-color: rgb(154, 93, 224);
+  /* size */
+  --border-radius-size: 10px;
+}
+
+body {
+  background-image: url(snow.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: center;
+}
+.shopping-list {
+  background-color: var(--main-color);
+  width: 400px;
+  margin: auto;
+  border-radius: var(--border-radius-size);
+  text-align: center;
+  margin-top: 30px;
+  box-shadow: 1px 2px 3px 3px rgb(204, 194, 219);
+}
+.shopping-list .shopping-list-header {
+  padding: 13px;
+  color: #fff;
+  font-family: '가나초콜릿';
+  font-size: 20px;
+}
+.shopping-list .shopping-list-main {
+  height: 70vh;
+  background-image: url(mainImage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: scroll;
+
+}
+.shopping-list-main .item-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px;
+  background-color: var(--sub-color);
+  padding: 0 10px;
+  border-radius: var(--border-radius-size);
+  font-family: '배달의민족 주아';
+  box-shadow: 1px 1px 1px 1px lightgray;
+  font-size: 18px;
+}
+.shopping-list-main .item-box input{
+  transform: scale(1.5);
+}
+.shopping-list-main .item-box .item-name.line-deco {
+  text-decoration-line: line-through;
+  text-decoration-style: wavy;
+  text-decoration-color: red;
+}
+.shopping-list-main .item-box .delete-item-btn {
+}
+.shopping-list-main .item-box .delete-item-btn:hover {
+  color: var(--point-color);
+}
+#add-item-input {
+  width: 98%;
+  margin: 0 auto;
+  outline: none;
+}
+#add-item-input:focus {
+  border: 1px solid var(--point-color);
+}
+
+.shopping-list .shopping-list-footer {
+  padding: 10px;
+} 
+.add-btn {
+  font-size: 30px;
+  color: #fff;
+  background-color: var(--point-color);
+  border: 2px double rgb(211, 207, 221);
+  border-radius: 50%;
+  padding: 0 8px;
+}
+.add-btn:hover {
+  color: black;
+  border-color: black;
+}
+
