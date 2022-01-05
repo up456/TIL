@@ -4,7 +4,6 @@ const addBtn = document.querySelector('.add-btn');
 const shoppingListMain = document.querySelector('.shopping-list-main');
 
 function addItem() {
-  idNum += 1;
   const divEl = document.createElement('div');
   divEl.setAttribute('class', 'item-box');
   divEl.innerHTML = `
