@@ -62,7 +62,7 @@ body {
   transform: scale(1.1);
 }
 
-.itme__divider {
+.item__divider {
   width: 90%;
   height: 2px;
   background-color: lightgray;
