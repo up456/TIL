@@ -86,10 +86,16 @@ body {
 
 /* 게임 영역 */
 .game-area {
-  background-color: #000;
   margin-top: 17%;
   width: 90%;
   height: 37%;
   position: absolute;
   left: 5%;
+}
+.carrot,.bug {
+  position: absolute;
+  left: 0;
+  top:0;
+  transition: transform 300ms ease-in;
+  width: 80px;
 }
