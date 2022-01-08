@@ -1,0 +1,85 @@
+:root {
+  /* size */
+  --boder :3px solid #000;
+  --radius: 10px;
+  --spacing: 5px;
+}
+
+
+body {
+  box-sizing: none;
+  margin: 0;
+  padding: 5px;
+  background-image: url(img/background.png);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 30px;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.btn{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border: var(--boder);
+  border-radius: var(--radius);
+  background-color: blanchedalmond;
+  cursor: pointer;
+  transition: transform 100ms;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.timer{
+  width: 125px;
+  padding: 1px 7px 2px 7px;
+  margin: auto;
+  margin-top: var(--spacing);
+  border: var(--boder);
+  border-radius: var(--radius);
+  background-color: #fff;
+}
+.carrot-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-top: var(--spacing);
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-size: 38px;
+  font-weight: bolder;
+  color: #fff;
+  background-color: coral;
+  font-family: '배달의민족 주아';
+}
+
+/* modal */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 35%;
+  padding: 9px;
+  border-radius: var(--radius);
+  left: 32%;
+  margin-top: 20%;
+  position: absolute;
+}
+
+.modal-description {
+  margin-top: 3px;
+  margin-bottom: 0;
+  color: #fff;
+  font-family: '가나초콜릿';
+  font-size: 25px;
+}
+.replay-modal .modal-description> b {
+  color: red;
+}

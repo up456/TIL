@@ -1,6 +1,12 @@
 const items = document.querySelector('.items');
+const form = document.querySelector('.new-form');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__button');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  onAdd();
+});
 
 function onAdd() {
   // 1. 사용자가 입력한 텍스트를 받아옴
@@ -43,7 +49,11 @@ addBtn.addEventListener('click', () => {
   onAdd();
 });
 
-input.addEventListener('keypress', (event) => {
+input.addEventListener('keydown', (event) => {
+  // 단어가 만들어지고 있을 때
+  if (event.isComposing) {
+    return;
+  }
   if (event.key === 'Enter') {
     onAdd();
   }

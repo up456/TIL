@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrot & bug</title>
+  <script src="https://kit.fontawesome.com/33c671eab1.js" crossorigin="anonymous"></script>
+  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="btn play-btn">▶</div>
+  <div class="timer">0:10</div>
+  <div class="carrot-counter">10</div>
+
+  <div class="modals">
+    <div class="modal replay-modal hidden">
+      <div class="btn replay-btn" data-key="replay" data-modal="replay"><i class="fas fa-undo-alt" data-key="replay"
+          data-modal="replay"></i></div>
+      <p class="modal-description">Replay<b>?</b></p>
+    </div>
+
+    <div class="modal lost-modal hidden">
+      <div class="btn replay-btn" data-key="replay" data-modal="lost"><i class="fas fa-undo-alt" data-key="replay"
+          data-modal="lost"></i></div>
+      <p class="modal-description">YOU LOST</p>
+    </div>
+
+    <div class="modal won-modal hidden">
+      <div class="btn replay-btn" data-key="replay" data-modal="won"><i class="fas fa-undo-alt" data-key="replay"
+          data-modal="won"></i></div>
+      <p class="modal-description">YOU WON</p>
+    </div>
+  </div>
+
+  <!-- 1. 시작버튼, 재설정 버튼을 누르면 랜덤으로 당근과 벌레를 뿌린다. -->
+  <!-- 2. 클릭된 요소가 당근이면 당근을 지우고, 벌레면 게임을 종료한다. -->
+  <!-- 3. 제한시간 내에 모든 당근을 지웠으면 게임에 승리한다. -->
+  <!-- 4. 제한시간이 넘어가면 게임을 종료한다. -->
+</body>
+
+</html>
