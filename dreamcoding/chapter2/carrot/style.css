@@ -83,3 +83,13 @@ body {
 .replay-modal .modal-description> b {
   color: red;
 }
+
+/* 게임 영역 */
+.game-area {
+  background-color: #000;
+  margin-top: 17%;
+  width: 90%;
+  height: 37%;
+  position: absolute;
+  left: 5%;
+}
