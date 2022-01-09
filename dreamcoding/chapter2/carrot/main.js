@@ -14,6 +14,7 @@ const gameOver = document.querySelector('#game-over');
 const gameWin = document.querySelector('#game-win');
 const bgm = document.querySelector('#bgm');
 
+// 게임 시작
 let carrot = 10;
 function playGame() {
   playBtn.textContent = '■';
@@ -36,7 +37,6 @@ function rolePlay(event) {
     return stopGame(lostModal);
   }
   // 당근을 클릭한다 -> 1. 당근의 이미지를 지운다. 2. 당근의 총개수-1를 한다.-> 당근의 총개수가 0이 된다. => 게임에서 승리한다.
-
   if (event.target.getAttribute('class') === 'carrot') {
     event.target.remove();
     carrot -= 1;
@@ -47,6 +47,7 @@ function rolePlay(event) {
     }
   }
 }
+// 셋팅 부분
 function setItems() {
   gameArea.innerHTML = `
     <img class="carrot" src="./img/carrot.png" alt="당근">
