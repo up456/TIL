@@ -19,7 +19,6 @@
   <section class="game-area">
   </section>
 
-
   <div class="modals">
     <div class="modal replay-modal hidden">
       <div class="btn replay-btn" data-key="replay" data-modal="replay"><i class="fas fa-undo-alt" data-key="replay"
@@ -39,6 +38,14 @@
       <p class="modal-description">YOU WON</p>
     </div>
   </div>
+
+  <!-- 사운드 부분 -->
+  <audio src="./sound/carrot_pull.mp3" id="carrot-pull"></audio>
+  <audio src="./sound/bug_pull.mp3" id="bug-pull"></audio>
+  <audio src="./sound/alert.wav" id="game-over"></audio>
+  <audio src="./sound/game_win.mp3" id="game-win"></audio>
+  <audio src="./sound/bg.mp3" id="bgm"></audio>
+
 
   <!-- 1. 시작버튼, 재설정 버튼을 누르면 랜덤으로 당근과 벌레를 뿌린다. -->
   <!-- 2. 클릭된 요소가 당근이면 당근을 지우고, 벌레면 게임을 종료한다. -->

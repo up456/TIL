@@ -7,10 +7,17 @@ const wonModal = document.querySelector('.won-modal');
 const gameArea = document.querySelector('.game-area');
 const carrotCounter = document.querySelector('.carrot-counter');
 
-let carrot = 10;
+// 사운드 부분
+const carrotPull = document.querySelector('#carrot-pull');
+const bugPull = document.querySelector('#bug-pull');
+const gameOver = document.querySelector('#game-over');
+const gameWin = document.querySelector('#game-win');
+const bgm = document.querySelector('#bgm');
 
+let carrot = 10;
 function playGame() {
   playBtn.textContent = '■';
+  bgm.play();
   playTimer();
   setItems();
   carrot = 10;
@@ -24,6 +31,8 @@ gameArea.addEventListener('click', (event) => {
 function rolePlay(event) {
   // 벌레를 클릭한다 -> 게임에서 패배한다.
   if (event.target.getAttribute('class') === 'bug') {
+    bugPull.play();
+    gameOver.play();
     return stopGame(lostModal);
   }
   // 당근을 클릭한다 -> 1. 당근의 이미지를 지운다. 2. 당근의 총개수-1를 한다.-> 당근의 총개수가 0이 된다. => 게임에서 승리한다.
@@ -32,8 +41,9 @@ function rolePlay(event) {
     event.target.remove();
     carrot -= 1;
     carrotCounter.textContent = carrot;
+    carrotPull.play();
     if (carrot === 0) {
-      stopGame(wonModal);
+      return stopGame(wonModal);
     }
   }
 }
@@ -63,6 +73,7 @@ function setItems() {
   mixPosition('.carrot');
   mixPosition('.bug');
 }
+
 gameArea.addEventListener('mouseover', (event) => {
   if (event.target.getAttribute('class') !== 'game-area') {
     event.target.style.transform = `${event.target.style.transform} scale(1.1)`;
@@ -99,32 +110,36 @@ playBtn.addEventListener('click', () => {
   }
 });
 
-//게임이 멈춘느 경우 => 1. 다시하기 버튼을 눌렀을 경우, 2. 게임에서 졌을 경우, 3. 게임에서 이겼을 경우
+//게임이 멈추는 경우 => 1. 다시하기 버튼을 눌렀을 경우, 2. 게임에서 졌을 경우, 3. 게임에서 이겼을 경우
 function stopGame(modal = replayModal) {
   playBtn.classList.add('hidden');
   modal.classList.remove('hidden');
   stopTimer();
+  bgm.pause();
+  if (modal === wonModal) {
+    return gameWin.play();
+  }
+  return gameOver.play();
 }
-// 다시하는 경우도 위과 같음
+// 다시하기 버튼 수행
 function replayGame(modal) {
-  playBtn.textContent = '▶';
   playBtn.classList.remove('hidden');
   modal.classList.add('hidden');
-  playGame();
+  return playGame();
 }
 
-// 모달 다시시작 버튼
+// 모달별로 다시시작 버튼 보여주기
 modals.addEventListener('click', (event) => {
   if (event.target.dataset.key === undefined) {
     return;
   }
   if (event.target.dataset.key === 'replay') {
     if (event.target.dataset.modal === 'replay') {
-      replayGame(replayModal);
+      return replayGame(replayModal);
     } else if (event.target.dataset.modal === 'lost') {
-      replayGame(lostModal);
+      return replayGame(lostModal);
     } else {
-      replayGame(wonModal);
+      return replayGame(wonModal);
     }
   }
 });
@@ -133,6 +148,7 @@ modals.addEventListener('click', (event) => {
 const timer = document.querySelector('.timer');
 
 let timeCounter;
+
 function playTimer() {
   let time = 11;
   timeCounter = setInterval(() => {
@@ -140,10 +156,11 @@ function playTimer() {
     timer.textContent = `0:${time}`;
     if (time == 0) {
       clearInterval(timeCounter);
-      stopGame(lostModal);
+      return stopGame(lostModal);
     }
   }, 1000);
 }
+
 function stopTimer() {
-  clearInterval(timeCounter);
+  return clearInterval(timeCounter);
 }
