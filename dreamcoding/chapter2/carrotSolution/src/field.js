@@ -1,6 +1,7 @@
 'use strict';
 
-const carrotSound = new Audio('./sound/carrot_pull.mp3');
+import * as sound from './sound.js';
+
 const CARROT_SIZE = 80;
 
 export default class Field {
@@ -19,6 +20,7 @@ export default class Field {
     this._addItem('bug', this.bugCount, 'img/bug.png');
   }
 
+  // onItemClick함수 가져옴
   setClickListener(onItemClick) {
     this.onItemClick = onItemClick;
   }
@@ -41,21 +43,18 @@ export default class Field {
     }
   }
 
-  onClick(event) {
+  // this 바인딩을 위해 함수를 멤버 변수로 정의
+  onClick = (event) => {
     const target = event.target;
     if (target.matches('.carrot')) {
       target.remove();
-      playSound(carrotSound);
+      sound.playCarrot();
+      // onItemClick함수 사용
       this.onItemClick && this.onItemClick('carrot');
     } else if (target.matches('.bug')) {
       this.onItemClick && this.onItemClick('bug');
     }
-  }
-}
-
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
+  };
 }
 
 function randomNumber(min, max) {

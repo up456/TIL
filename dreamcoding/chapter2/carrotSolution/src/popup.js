@@ -8,12 +8,13 @@ export default class PopUp {
     this.popUpRefresh = document.querySelector('.pop-up__refresh');
     // 클릭 시 이벤트 처리 선언
     this.popUpRefresh.addEventListener('click', () => {
+      // 게임시작함수 실행
       this.onClick && this.onClick();
       this.hide();
     });
   }
 
-  // 클릭 이벤트 붙이기
+  // 게임시작 함수 가져옴
   setClickListener(onClick) {
     this.onClick = onClick;
   }
