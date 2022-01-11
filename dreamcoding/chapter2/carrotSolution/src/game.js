@@ -20,6 +20,7 @@ export default class Game {
     });
 
     this.gameField = new Field(carrotCount, bugCount);
+    // 이렇게 클래스가 인자로 전달되면 따로 바인딩을 해주어야 한다.
     this.gameField.setClickListener(this.onItemClick);
 
     this.started = false;
